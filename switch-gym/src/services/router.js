@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { Feather } from '@expo/vector-icons'
 
-import Cadastro from "./pages/Cadastro"
-import Edit from "./pages/Edit"
-import Index from "./pages/Index"
-import Login from "./pages/Login"
-import Show from "./pages/Show"
+import Cadastro from "../pages/Cadastro"
+import Edit from "../pages/Edit"
+import Index from "../pages/Index"
+import Login from "../pages/Login"
+import Show from "../pages/Show"
 
 const Stack = createStackNavigator()
 
