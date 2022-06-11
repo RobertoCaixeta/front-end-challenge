@@ -6,15 +6,16 @@ export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const handlePost = () => {
-    api
-      .post("/users", {
-        user: {
-          email: email,
-          password: senha
-        }
-
+    api.post("/users", {
+      user: {
+        email: email,
+        password: senha
       }
-      ).then(() => navigation.navigate("login"))
+
+    }).then(() => navigation.navigate("login"))
+      .catch((error) => {
+        console.log(error, "Erro ao cadastrar")
+      })
   }
   return (
     <View style={styles.container}>
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   inputTextArea: {
     alignItems: 'center',
   },
-  text:{
+  text: {
     color: "#fff",
     fontSize: 15,
     marginVertical: 10,
