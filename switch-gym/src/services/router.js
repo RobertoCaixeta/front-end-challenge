@@ -15,19 +15,26 @@ function Routes() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen 
-                name="cadastro" 
-                component={Cadastro}
-                options={{
-                    title:'Cadastre-se',
-                    headerTitleStyle: {
-                        fontFamily: 'Montserrat_700Bold'
-                    }   
-                }}
-                 />
+                <Stack.Screen
+                    name="cadastro"
+                    component={Cadastro}
+                    options={{
+                        title: 'Cadastre-se',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }}
+                />
                 <Stack.Screen name="edit" component={Edit} />
                 <Stack.Screen name="index" component={Index} />
-                <Stack.Screen name="login" component={Login} />
+                <Stack.Screen name="login"
+                    component={Login}
+                    options={{
+                        title: 'Login',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }} />
                 <Stack.Screen name="show" component={Show} />
             </Stack.Navigator>
         </NavigationContainer>
