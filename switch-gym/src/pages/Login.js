@@ -1,11 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native';
 import api from '../services/api';
+
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
+
+  useEffect(() => {
+    AsyncStorage.removeItem('TOKEN')
+
+  }, []);
   const Login = () => {
     api
       .post("/users/login", {
@@ -20,7 +26,6 @@ export default function Login({ navigation }) {
         AsyncStorage.setItem("TOKEN", response.headers.authorization)
         navigation.navigate("index")
       }).catch((error) => {
-        console.log("erro", error)
         Alert.alert("Erro ao fazer login!")
       })
   }
