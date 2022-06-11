@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
 import api from '../services/api';
 
-export default function Cadastro() {
+export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const handlePost = () => {
@@ -10,17 +10,16 @@ export default function Cadastro() {
       .post("/users", {
         user: {
           email: email,
-          password: senha,
+          password: senha
         }
 
       }
-      ).then(({ data }) => console.log(data))
+      ).then(() => navigation.navigate("login"))
   }
   return (
     <View style={styles.container}>
       <View style={styles.inputTextArea}>
         <Text style={styles.title} >Switch Gym</Text>
-
         <Text style={styles.label} >Email</Text>
         <TextInput
           style={styles.input}
@@ -39,6 +38,11 @@ export default function Cadastro() {
         <Button
           title='Cadastrar'
           onPress={() => handlePost()}
+        />
+        <Text style={styles.text}>Já é cadastrado? Faça login!</Text>
+        <Button
+          title='Login'
+          onPress={() => navigation.navigate("login")}
         />
       </View>
     </View>
@@ -70,7 +74,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 50
   },
-  inputTextArea:{
+  inputTextArea: {
     alignItems: 'center',
+  },
+  text:{
+    color: "#fff",
+    fontSize: 15,
+    marginVertical: 10,
   }
 })
