@@ -25,8 +25,24 @@ function Routes() {
                         }
                     }}
                 />
-                <Stack.Screen name="edit" component={Edit} />
-                <Stack.Screen name="index" component={Index} />
+                <Stack.Screen name="edit"
+                    component={Edit}
+                    options={{
+                        title: 'Editar aula',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }}
+                />
+                <Stack.Screen name="index"
+                    component={Index}
+                    options={{
+                        title: 'Aulas',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }}
+                />
                 <Stack.Screen name="login"
                     component={Login}
                     options={{
@@ -35,7 +51,14 @@ function Routes() {
                             fontFamily: 'Montserrat_700Bold'
                         }
                     }} />
-                <Stack.Screen name="show" component={Show} />
+                <Stack.Screen name="show"
+                    component={Show}
+                    options={{
+                        title: 'Aula',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }} />
             </Stack.Navigator>
         </NavigationContainer>
     );
