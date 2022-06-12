@@ -11,9 +11,9 @@ export default function Edit({ route, navigation }) {
 
   const handleDelete = () => {
     api.delete("/gym_classes/" + route.params.aula.id, {
-      
-        authorization: token
-      
+
+      authorization: token
+
     }
     )
       .then(() => {
@@ -28,7 +28,7 @@ export default function Edit({ route, navigation }) {
       gym_class: {
         name: name,
       },
-      
+
     })
       .then(() => {
         navigation.navigate("index")
@@ -48,14 +48,18 @@ export default function Edit({ route, navigation }) {
           value={name}
           onChangeText={setName}
         />
+
         <Button
           title='Atualizar'
           onPress={() => handleUpdate()}
         />
-        <Button
-          title='Remover aula'
-          onPress={() => handleDelete()}
-        />
+        <View style={{ marginVertical: 20 }}>
+          <Button
+            title='Remover aula'
+            onPress={() => handleDelete()}
+          />
+        </View>
+
       </View>
 
     </View>
