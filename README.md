@@ -68,6 +68,3 @@ Ao enviar o desafio você declara que a solução implementada foi 100% feita po
 
 
 
-## ENTREGA
-link para vídeo de apresentação da tarefa
-https://www.youtube.com/watch?v=dlLIR0W71fE
