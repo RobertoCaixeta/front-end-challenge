@@ -66,3 +66,8 @@ Deve-se fazer uma [Publish](https://docs.expo.dev/workflow/publishing/#how-to-pu
 ## Observações
 Ao enviar o desafio você declara que a solução implementada foi 100% feita por você, sem violar nenhuma licença de software de terceiros.
 
+
+
+## ENTREGA
+link para vídeo de apresentação da tarefa
+https://www.youtube.com/watch?v=dlLIR0W71fE
