@@ -1,11 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
-import { indexAulas } from '../services/api';
+import api, { indexAulas } from '../services/api';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Index({ navigation }) {
   const [aulas, setAulas] = useState([])
   const [role, setRole] = useState(false)
+
+  useFocusEffect(
+    React.useCallback(() => {
+      api.get("/gym_classes").then(({ data }) => {
+        setAulas(data)
+      })
+        .catch((error) => {
+          console.log(error, "Erro ao listar aulas")
+        })
+
+      return () => {
+      };
+    }, [])
+  );
 
   useEffect(() => {
     AsyncStorage.getItem('ROLE').then((userRole) => {
@@ -17,8 +32,9 @@ export default function Index({ navigation }) {
   }, []);
 
   useEffect(() => {
-    indexAulas.then(({ data }) => {
+    api.get("/gym_classes").then(({ data }) => {
       setAulas(data)
+
     })
       .catch((error) => {
         console.log(error, "Erro ao listar aulas")
